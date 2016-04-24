@@ -1,0 +1,5 @@
+1. Windows安装mongodb 
+	下载相应的压缩包	解压
+2. 启动服务及进入shell
+	通过 %MONGODB_HOME%\bin\mongod.exe --dbpath D:\mongodb\data 启动mongodb服务（--dbpath 参数用于指定数据文件存放路径）
+	通过 %MONGODB_HOME%\bin\mongo.exe --shell 进入shell命令
