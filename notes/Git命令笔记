@@ -1,0 +1,18 @@
+1. 初始化项目
+    git init
+2. 加载文件
+    git add .
+		. 是把文件夹里面的所有文件都加载进来
+		还可以单个加载
+	git add Git命令笔记,SVN笔记
+3. 提交文件，创建时间点
+    git commit -m "初始提交"
+		-m "这里的文件是注释"
+4. 查看Git状态
+	git status
+5. 配置远程仓库
+	git remote add origin -m --mirror https://github.com/shixw/learning-notes.git
+6. 更新本地仓库
+	git pull origin master
+7. 推送代码到远程仓库 （需要输入用户名 和 密码）
+	git push origin master
