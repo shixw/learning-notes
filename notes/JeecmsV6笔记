@@ -1,0 +1,40 @@
+1. Oracle数据库用户创建
+	create user jeecms identified by jeecms ;
+	--对用户进行修改
+	alter user jeecms quota unlimited on USERS;
+	grant create trigger to jeecms ;
+	grant create session to jeecms;
+	grant create sequence to jeecms;
+	grant create synonym to jeecms;
+	grant create table to jeecms;
+	grant create view to jeecms;
+	grant create procedure to jeecms;
+	grant alter session to jeecms;
+	-- em导入需要的权限
+	grant OEM_MONITOR to jeecms;
+	GRANT EXP_FULL_DATABASE TO jeecms ;
+	GRANT IMP_FULL_DATABASE TO jeecms;
+2. 数据导入
+	imp jeecms/jeecms@maximo file=F:\oracle\jeecmsv6.dmp fromuser = JEECMSV6NEW log=F:\oracle\jeecms20160425.log
+3. 修改数据库配置文件
+	%JEECMS_PROJECT_HOME%/WebContent/WEB-INF/config/jdbc.properties	
+
+	#oracle\u914d\u7f6e
+	jdbc.driverClassName=oracle.jdbc.driver.OracleDriver
+	jdbc.url=jdbc:oracle:thin:@localhost:1521:maximo
+	jdbc.username=jeecms
+	jdbc.password=jeecms
+	hibernate.db=oracle
+	hibernate.dialect=org.hibernate.dialect.Oracle9Dialect
+	hibernate.hbm.jeecms.core=classpath*:/com/jeecms/core/entity/hbm/oracle/*.hbm.xml
+	hibernate.hbm.jeecms.cms=classpath*:/com/jeecms/cms/entity/main/hbm/oracle/*.hbm.xml
+	hibernate.hbm.jeecms.assist=classpath*:/com/jeecms/cms/entity/assist/hbm/oracle/*.hbm.xml
+4. 后台管理页面
+		http://localhost:8080/jeecms/jeeadmin/jeecms/index.do
+		用户名/密码：admin/password
+	前台页面
+		http://localhost:8080/
+5. 直接使用Eclipse发布项目测试，修改 项目的访问路径不加上项目名
+	1) 右键点击项目名--Properties--Web Project Settings
+	2) 将Context root框中值修改为：/
+
