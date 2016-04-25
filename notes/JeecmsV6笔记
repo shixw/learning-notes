@@ -29,12 +29,13 @@
 	hibernate.hbm.jeecms.core=classpath*:/com/jeecms/core/entity/hbm/oracle/*.hbm.xml
 	hibernate.hbm.jeecms.cms=classpath*:/com/jeecms/cms/entity/main/hbm/oracle/*.hbm.xml
 	hibernate.hbm.jeecms.assist=classpath*:/com/jeecms/cms/entity/assist/hbm/oracle/*.hbm.xml
-4. 后台管理页面
-		http://localhost:8080/jeecms/jeeadmin/jeecms/index.do
+4. 直接使用Eclipse发布项目测试，修改 项目的访问路径不加上项目名
+	1) 右键点击项目名--Properties--Web Project Settings
+	2) 将Context root框中值修改为：/
+5. 后台管理页面
+		http://localhost:8080/jeeadmin/jeecms/index.do
 		用户名/密码：admin/password
 	前台页面
 		http://localhost:8080/
-5. 直接使用Eclipse发布项目测试，修改 项目的访问路径不加上项目名
-	1) 右键点击项目名--Properties--Web Project Settings
-	2) 将Context root框中值修改为：/
+
 
