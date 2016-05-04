@@ -37,5 +37,27 @@
 		用户名/密码：admin/password
 	前台页面
 		http://localhost:8080/
+6. JEECMSv6文库工具安装
+	http://www.jeecms.com/hjdj/461.htm
+	下载地址：
+		swftools：	http://www.swftools.org/swftools-0.9.0.exe
+		OpenOffice：https://sourceforge.net/projects/openofficeorg.mirror/files/?source=navbar
+					http://iweb.dl.sourceforge.net/project/openofficeorg.mirror/4.0.0/binaries/zh-CN/Apache_OpenOffice_4.0.0_Win_x86_install_zh-CN.exe
+	在后台管理-> 配置中修改 文库工具路径
+7. 教程首页
+	http://www.jeecms.com/tutorial/index.htm
+8. 修改首页 logo
+	ROOT\r\cms\&站点目录&\&站点目录&\img\index\webLogo.gif
 
+	 <div class="gngjList">
+                <ul>
+                [@cms_content_list count='12' orderBy='4' titLen='20' channelId='11'  channelOption='1']
+                [#list tag_list as a]
+                  <li>
+                <a href="${a.url}" title="${a.title}" target="_blank">[@text_cut s=a.title len=titLen /]</a>
+                </li>
+                [/#list]
+                [/@cms_content_list]
+                </ul>
+            </div>
 
