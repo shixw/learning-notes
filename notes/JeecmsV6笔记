@@ -49,6 +49,11 @@
 8. 修改首页 logo
 	ROOT\r\cms\&站点目录&\&站点目录&\img\index\webLogo.gif
 
+9. ubuntu mysql 远程连接修改文件 
+	sudo vim /etc/mysql/mysql.conf.d/mysqld.cnf
+	bind-address          = 127.0.0.1 #注释掉或将 127.0.0.1 改成 0.0.0.0
+
+	
 	 <div class="gngjList">
                 <ul>
                 [@cms_content_list count='12' orderBy='4' titLen='20' channelId='11'  channelOption='1']

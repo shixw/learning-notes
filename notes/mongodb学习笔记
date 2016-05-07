@@ -3,3 +3,50 @@
 2. 启动服务及进入shell
 	通过 %MONGODB_HOME%\bin\mongod.exe --dbpath D:\mongodb\data 启动mongodb服务（--dbpath 参数用于指定数据文件存放路径）
 	通过 %MONGODB_HOME%\bin\mongo.exe --shell 进入shell命令
+3. 常用命令说明
+	//显示可用的数据库
+		>show dbs;
+	//显示当前库中的集合
+		>show collections;
+	//显示当前库中的用户
+		>show users;
+	//切换库,无论数据库是否存在，在第一次向数据存储数据时自动创建
+		>use <db name>
+	//查询数据中的索引
+		> db.indexes.find();
+	//查询某个集合的所以
+		> db.collection.getIndexes();
+	//查看当前shell正在使用的数据库
+		> db
+	//插入数据
+		> document={"type":"Book","Title":"Definitive Guide to MongoDB 2nd ed.,The","ISBN":"978-1-4302-5821-6","Publisher":"Apress","Author":["Hows,David","Plugge,Eelco","Membrey,Peter","Hawkins,Tim"]}
+		>db.media.insert(document)
+		>db.media.insert({"type":"CD",
+			"Artist":"Morvama",
+			"Title":"Nevermind",
+			"Tracklist":[
+				{
+					"Track":"1",
+					"Title":"Smells Like Teem Spirit",
+					"Length":"5:02"
+				},
+				{
+					"Track":"2",
+					"Title":"In Bloom",
+					"Length":"4:15"
+				}
+			]
+		})
+	//查询数据
+		> db.media.find()
+4. 对于需要在MySQL中创建索引的场景，在MongoDB中也应该创建索引
+	每个集合最多可以拥有40个索引
+	所有的所有信息都存储在 system.indexes 集合中
+5. 地理空间索引
+	//type 用于指定文档的对象类型（Point、LineString、Polygon）
+	//Point 指定某个条目的准确位置，需要经度和纬度
+		> db.restaurants.insert({name:'Kimono',loc:{type:'Point',coordinates:[52.370451,5.217497]}});
+	//LineString 指定某个沿着特定路线扩展的条目（例如街道），需要起点和终点
+		> db.restaurants.insert({name:'Westblaak',loc:{type:'LineString',coordinates:[[52.36881,4.890286],[52.368762,4.890021]]}});
+	//Polygon 指定（非默认）图形（购物区域）。需要保证起点和终点是一致的，从而可以闭合这个环
+		> db.restaurants.insert({name:'SuperMall',loc:{type:'Polygon',coordinates:[[52.146917,5.374337],[52.146966,5.375471],[52.146722,5.375085],[52.146744,5.37437],[52.146917,5.374337]]}});
