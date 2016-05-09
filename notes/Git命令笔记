@@ -16,3 +16,11 @@
 	git pull origin master
 7. 推送代码到远程仓库 （需要输入用户名 和 密码）
 	git push origin master
+8. 查看当前所有分支 带星号（*）为当前开发分支，同 加参数 -l 效果一直
+	git branch [-l]
+9. 创建分支
+	git branch %分支名称%
+10. 删除分支 -d 删除已经全部merged分支，-D 删除 不管是否merged
+	 git branch -d/-D %分支名称%
+11. 切换分支
+	git checkout %分支名称%
