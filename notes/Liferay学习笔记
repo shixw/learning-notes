@@ -13,3 +13,11 @@ Liferay学习笔记
 	启动Liferay后，以管理员帐号登录，进入控制面板-->应用程序管理器，找到OpenSocial Gadget Portlet，点击右边操作的卸载即可，以后也不会再出现此问题
 
 	这个东西是Liferay提供的对于集成opensocial插件的支持，对于大部分的用户而言基本上就是等于没用的，特别是在国内，基本上很少有见到基于opensocial协议开发插件的。
+4. 启动openoffice转换服务
+	进入安装目录下的/program目录，使用如下命令启动
+	soffice -headless -accept="socket,host=127.0.0.1,port=8100;urp;" -nofirststartwizard
+5.imagemagick安装配置
+	下载地址：http://www.imagemagick.org/script/binary-releases.php
+6.ghostscript安装配置
+	下载地址：	http://ghostscript.com/download/gsdnld.html
+						https://sourceforge.net/projects/ghostscript/?source=typ_redirect
