@@ -21,3 +21,24 @@ Liferay学习笔记
 6.ghostscript安装配置
 	下载地址：	http://ghostscript.com/download/gsdnld.html
 						https://sourceforge.net/projects/ghostscript/?source=typ_redirect
+7.动态数据列表使用
+	https://dev.liferay.com/discover/portal/-/knowledge_base/6-2/make-it-pretty-creating-custom-displays
+	创建展示模板是报错 “Expression serviceLocator is undefined”
+		解决办法：
+			在 portal-ext.properties  文件中配置
+					velocity.engine.restricted.classes=
+					velocity.engine.restricted.variables=
+					freemarker.engine.restricted.classes=
+					freemarker.engine.restricted.variables=
+			示例模板：
+						<h1>Task Summary</h1>
+						Here are the tasks that people have signed up for on "${reserved_record_set_name}".
+						<#assign DDLRecordLocalService = serviceLocator.findService("com.liferay.portlet.dynamicdatalists.service.DDLRecordLocalService")>
+						<#assign records = DDLRecordLocalService.getRecords(reserved_record_set_id)>
+						<ul>
+						<#if records?has_content>
+								<#list records as cur_record>
+												<li><em>${cur_record.getFieldValue("名称", locale)}</em> will help with ${cur_record.getFieldValue("任务", locale)}</li>
+								</#list>
+						</#if>
+						</ul>
